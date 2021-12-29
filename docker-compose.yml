@@ -1,0 +1,31 @@
+version: "3.4"
+services:
+  backend:
+    container_name: backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    stdin_open: true
+    volumes:
+      - .:/home/elixir/backend
+    ports:
+      - "4000:4000"
+    dns:
+      - 1.1.1.1
+    links:
+      - db
+   
+
+  db:
+    container_name: db
+    image: postgres:10.16-alpine
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+volumes:
+  db_data:
+    external: true
+    name: file_db_data

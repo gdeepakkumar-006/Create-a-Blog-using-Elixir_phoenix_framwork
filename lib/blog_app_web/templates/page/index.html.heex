@@ -1,0 +1,19 @@
+<section class="phx-hero">
+  <h1><%= gettext "Welcome to %{name}!", name: "Elixir's Blogs!!" %></h1>
+  <p style="background-color: black;
+    color: #ccf551;
+    font-size: 25px;">Make your quotes brief!!</p>
+</section>
+
+<section class="row">
+  <article class="column">
+   <li> 
+    <%= link to: "http://localhost:4000/posts/1", class: "nav-link" do %><i class="fas fa-users"></i> BOOTSTRAPPING A MULTIPLAYER SERVER WITH ELIXIR AT X-PLANE <% end %><br>
+    </li> 
+    <li> 
+    <%= link to: "http://localhost:4000/posts/2", class: "nav-link" do %><i class="fas fa-users"></i> Social virtual spaces with Elixir at Mozilla <% end %><br>
+    </li> 
+  <span><%= link "Create New Post", to: Routes.post_path(@conn, :new) %></span><br>
+     <span><%= link "Show Blogs!", to: Routes.post_path(@conn, :index) %></span>
+  </article>
+</section>
